@@ -1,0 +1,54 @@
+.nft-minter {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .nft-minter h2 {
+    margin-bottom: 20px;
+  }
+  
+  .nft-minter select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    color: black;
+    opacity: 1 !important; /* Ensure visibility */
+    visibility: visible !important;
+  }
+  
+  .nft-minter select:hover,
+  .nft-minter select:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .nft-minter option {
+    background-color: white;
+    color: black;
+    opacity: 1 !important; /* Ensure options are visible */
+  }
+  
+  .nft-minter button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .nft-minter button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+  }
+  
+  .nft-minter p {
+    margin: 10px 0;
+  }

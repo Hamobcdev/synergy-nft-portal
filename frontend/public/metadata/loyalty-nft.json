@@ -1,0 +1,9 @@
+{
+  "name": "Synergy Loyalty NFT",
+  "description": "A Loyalty NFT for Synergy Blockchain Pacific, offering 5% discount on services.",
+  "image": "ipfs://<LOYALTY_IMAGE_CID>",
+  "attributes": [
+    { "trait_type": "Type", "value": "Loyalty" },
+    { "trait_type": "Discount", "value": "5%" }
+  ]
+}
