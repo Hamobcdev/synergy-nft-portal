@@ -65,10 +65,10 @@ throw new Error(`Insufficient MATIC: Need ${ethers.formatEther(requiredValue)} M
 console.log('Minting NFT...');
 const nftContract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
 const tokenURI = metadataURIs[parseInt(nftType)];
-const tx = await nftContract.mintNFT(userAddress, tokenURI, parseInt(nftType), { 
-value: requiredValue,
-gasLimit: 500000 // Increase gas limit for complex minting
+const tx = await nftContract.mintNFT(userAddress, tokenURI, parseInt(nftType), {
+  value: requiredValue
 });
+
 await tx.wait();
 
 setSuccess('NFT minted successfully!');

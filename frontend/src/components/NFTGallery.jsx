@@ -26,6 +26,12 @@ function NFTGallery({ userAddress }) {
     }
   ];
 
+  const ipfsToHttp = (url) => {
+    if (!url) return '';
+    return url.replace('ipfs://', 'https://gateway.pinata.cloud/ipfs/');
+  };
+  
+
   const alchemyApiKey = import.meta.env.VITE_ALCHEMY_API_KEY || 'kJZi_A86EXSmHa6PHFLa05CdIs498hU4';
   console.log('Alchemy API Key:', alchemyApiKey);
 
@@ -71,7 +77,7 @@ function NFTGallery({ userAddress }) {
         name: `Synergy NFT #${id}`,
         type: ['Loyalty', 'Supporter', 'VIP'][nftTypes[index]],
         description: `A ${['Loyalty', 'Supporter', 'VIP'][nftTypes[index]]} NFT for Synergy Blockchain Pacific.`,
-        image: tokenURIs[index] || 'https://via.placeholder.com/150'
+        image: ipfsToHttp[index] || 'https://via.placeholder.com/150'
       }));
 
       setNfts(nftList);

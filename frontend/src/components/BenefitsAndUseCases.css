@@ -89,8 +89,8 @@
   }
   
   .nft-tier.enterprise {
-    border-left: 5px solid #2c3e50;
-    background-color: #f0f5ff;
+    border-left: 5px solid #0d1216;
+    background-color: #8da4d2;
   }
   
   .nft-tier h4 {
@@ -196,7 +196,7 @@
     border-left: 5px solid #198cf8;
     font-weight: 500;
     margin: 25px 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(180, 214, 9, 0.1);
   }
   
   .use-cases {
@@ -211,7 +211,7 @@
     border-radius: 8px;
     padding: 15px;
     border-top: 4px solid #2a52be;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(10, 228, 7, 0.1);
     transition: transform 0.3s;
   }
   
