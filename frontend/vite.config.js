@@ -12,7 +12,10 @@ export default defineConfig({
     alias: {
       buffer: 'buffer/' // Use ES Module path for buffer
     }
+
   },
+  
+  
   optimizeDeps: {
     include: ['buffer']
   },

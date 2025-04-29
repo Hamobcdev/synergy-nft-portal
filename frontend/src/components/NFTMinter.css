@@ -52,3 +52,50 @@
   .nft-minter p {
     margin: 10px 0;
   }
+
+  .nft-minter {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  .logo {
+    max-width: 150px;
+  }
+  .form-group {
+    margin: 20px 0;
+  }
+  .form-group label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  .form-group select {
+    padding: 10px;
+    width: 100%;
+  }
+  .mint-button {
+    background: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  .mint-button:hover {
+    background: #0056b3;
+  }
+  .mint-button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+  .success-message {
+    color: green;
+    margin-top: 10px;
+  }
+  .success-message a {
+    color: #007bff;
+    text-decoration: underline;
+  }
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }

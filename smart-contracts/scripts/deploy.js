@@ -1,23 +1,20 @@
-const hre = require("hardhat");
+require('dotenv').config();
+const { ethers } = require('hardhat');
 
 async function main() {
-  // Get the contract factory
-  const SynergyNFT = await hre.ethers.getContractFactory("SynergyNFT");
-  
-  // Deploy the contract
-  const synergyNFT = await SynergyNFT.deploy();
-  await synergyNFT.waitForDeployment();
-  
-  // Get the contract address
-  const address = await synergyNFT.getAddress();
-  
-  console.log("SynergyNFT deployed to:", address);
+  const [deployer] = await ethers.getSigners();
+  console.log('Deploying with account:', deployer.address);
+
+  const SynergyNFT = await ethers.getContractFactory('SynergyNFT');
+  const baseURI = 'ipfs://';
+  const priceFeedAddress = '0x001382149eBa3441043c1c66972bD537E25019e2';
+  const contract = await SynergyNFT.deploy(baseURI, priceFeedAddress);
+  await contract.deployed();
+
+  console.log('SynergyNFT deployed to:', contract.address);
 }
 
-// Execute the deployment
-main()
-  .then(() => process.exit(0))
-  .catch((error) => {
-    console.error(error);
-    process.exit(1);
-  });
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
