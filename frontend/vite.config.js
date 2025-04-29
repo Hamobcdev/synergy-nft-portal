@@ -12,16 +12,17 @@ export default defineConfig({
     alias: {
       buffer: 'buffer/' // Use ES Module path for buffer
     }
-
   },
-  
-  
   optimizeDeps: {
     include: ['buffer']
   },
   server: {
     port: 5173,
-    open: true
+    open: true,
+    allowedHosts: [
+      '5173-hamobcdev-synergynftpor-ti6oz6hrnfe.ws-us118.gitpod.io',
+      '.gitpod.io' // This allows any Gitpod workspace
+    ]
   },
   build: {
     rollupOptions: {
