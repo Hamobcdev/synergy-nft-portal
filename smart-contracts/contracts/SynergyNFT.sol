@@ -26,12 +26,12 @@ contract SynergyNFT is ERC721URIStorage, Ownable {
     event TokenURIUpdated(uint256 indexed tokenId, string tokenURI);
     event FiatMintRequested(address indexed recipient, uint256 nftType, string tokenURI);
 
-    constructor(string memory baseURI_, address priceFeedAddress) ERC721("SynergyNFT", "SNFT") Ownable(msg.sender) {
+    constructor(string memory baseURI_, address priceFeedAddress) ERC721("SynergyNFT", "SNFT") {
         _baseURIextended = baseURI_;
         priceFeed = AggregatorV3Interface(priceFeedAddress); // Amoy MATIC/USD: 0x001382149eBa3441043c1c66972bD537E25019e2
     }
 
-    function mintNFT(address recipient, string memory tokenURI, uint256 nftType) 
+    function mintNFT(address recipient, string memory newTokenURI, uint256 nftType) 
         public 
         payable 
         returns (uint256) 
@@ -43,19 +43,19 @@ contract SynergyNFT is ERC721URIStorage, Ownable {
         } else {
             require(msg.value >= requiredValue, "Insufficient payment");
         }
-        require(bytes(tokenURI).length > 0, "Token URI cannot be empty");
+        require(bytes(newTokenURI).length > 0, "Token URI cannot be empty");
 
-        return _mintNFT(recipient, tokenURI, nftType);
+        return _mintNFT(recipient, newTokenURI, nftType);
     }
 
-    function mintByOwner(address recipient, string memory tokenURI, uint256 nftType) 
+    function mintByOwner(address recipient, string memory newTokenURI, uint256 nftType) 
         external 
         onlyOwner 
         returns (uint256) 
     {
         require(nftType <= 3, "Invalid NFT type");
-        require(bytes(tokenURI).length > 0, "Token URI cannot be empty");
-        return _mintNFT(recipient, tokenURI, nftType);
+        require(bytes(newTokenURI).length > 0, "Token URI cannot be empty");
+        return _mintNFT(recipient, newTokenURI, nftType);
     }
 
     function requestFiatMint(address recipient, string memory tokenURI, uint256 nftType) 

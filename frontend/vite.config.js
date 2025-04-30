@@ -4,6 +4,7 @@ import { Buffer } from 'buffer';
 
 export default defineConfig({
   plugins: [react()],
+  base: '/synergy-nft-portal/', // Required for GitHub Pages
   define: {
     'process.env': {},
     global: 'globalThis'
