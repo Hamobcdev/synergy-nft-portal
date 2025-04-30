@@ -1,0 +1,12 @@
+tasks:
+  - name: Frontend
+    init: |
+      cd frontend
+      npm install
+    command: |
+      cd frontend
+      npm run dev
+
+ports:
+  - port: 5173
+    onOpen: open-preview

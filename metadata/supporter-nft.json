@@ -1,0 +1,9 @@
+{
+  "name": "Synergy Supporter NFT",
+  "description": "A Supporter NFT for Synergy Blockchain Pacific, proof of crowdfunding participation.",
+  "image": "ipfs://<SUPPORTER_IMAGE_CID>",
+  "attributes": [
+    { "trait_type": "Type", "value": "Supporter" },
+    { "trait_type": "Role", "value": "Crowdfunding Participant" }
+  ]
+}

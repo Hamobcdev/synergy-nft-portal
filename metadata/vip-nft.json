@@ -1,0 +1,9 @@
+{
+  "name": "Synergy VIP NFT",
+  "description": "A VIP NFT for Synergy Blockchain Pacific, offering 24-month staking verification.",
+  "image": "ipfs://<VIP_IMAGE_CID>",
+  "attributes": [
+    { "trait_type": "Type", "value": "VIP" },
+    { "trait_type": "Staking", "value": "24 Months" }
+  ]
+}
