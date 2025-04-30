@@ -1,12 +1,7 @@
-// frontend/src/components/NFTGallery.jsx
 import { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import { Network, Alchemy } from 'alchemy-sdk';
 import CONTRACT_ABI from '../abis/SynergyNFT.json';
-import { Buffer } from 'buffer';
-
-// Polyfill buffer for browser
-window.Buffer = window.Buffer || Buffer;
 
 function NFTGallery({ userAddress }) {
   const [nfts, setNfts] = useState([]);
@@ -48,7 +43,7 @@ function NFTGallery({ userAddress }) {
         throw new Error('Please connect your wallet.');
       }
 
-      const provider = new ethers.JsonRpcProvider(RPC_URL);
+      const provider = new ethers.providers.JsonRpcProvider(RPC_URL);
       const network = await provider.getNetwork();
       if (Number(network.chainId) !== 80002) {
         throw new Error('Please switch to Polygon Amoy testnet (Chain ID: 80002)');

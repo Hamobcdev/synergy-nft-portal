@@ -22,14 +22,14 @@ function NFTMinter({ userAddress }) {
   ];
 
   const nftPrices = {
-    0: ethers.parseEther('0.5'), // Loyalty
-    1: ethers.parseEther('0.75'), // Supporter
-    2: ethers.parseEther('1'), // VIP
+    0: ethers.utils.parseEther('0.5'), // Loyalty
+    1: ethers.utils.parseEther('0.75'), // Supporter
+    2: ethers.utils.parseEther('1'), // VIP
   };
 
   const fetchNftCounts = async () => {
     try {
-      const provider = new ethers.JsonRpcProvider(RPC_URL);
+      const provider = new ethers.providers.JsonRpcProvider(RPC_URL);
       const nftContract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI.abi, provider);
       const counts = {};
       for (let i = 0; i < 3; i++) {
@@ -81,7 +81,7 @@ function NFTMinter({ userAddress }) {
       if (!ethereum) throw new Error('Please install MetaMask!');
       if (!userAddress) throw new Error('Please connect your wallet.');
 
-      const provider = new ethers.BrowserProvider(ethereum);
+      const provider = new ethers.providers.Web3Provider(ethereum);
       const signer = await provider.getSigner();
       const network = await provider.getNetwork();
       console.log('Network chainId:', Number(network.chainId));
@@ -113,9 +113,9 @@ function NFTMinter({ userAddress }) {
 
       const balance = await provider.getBalance(userAddress);
       const requiredValue = nftPrices[nftType];
-      console.log('Balance:', ethers.formatEther(balance), 'Required:', ethers.formatEther(requiredValue));
+      console.log('Balance:', ethers.utils.formatEther(balance), 'Required:', ethers.utils.formatEther(requiredValue));
       if (balance < requiredValue) {
-        throw new Error(`Insufficient MATIC: Need ${ethers.formatEther(requiredValue)} MATIC`);
+        throw new Error(`Insufficient MATIC: Need ${ethers.utils.formatEther(requiredValue)} MATIC`);
       }
 
       if (!['0', '1', '2'].includes(nftType)) {
@@ -163,7 +163,7 @@ function NFTMinter({ userAddress }) {
       else if (err.data?.message) errorMessage = `Contract error: ${err.data.message}`;
       else if (err.error?.data) {
         try {
-          const iface = new ethers.Interface(CONTRACT_ABI.abi);
+          const iface = new ethers.utils.Interface(CONTRACT_ABI.abi);
           const decodedError = iface.parseError(err.error.data);
           errorMessage = `Contract revert: ${decodedError.name} (${decodedError.args.join(', ')})`;
         } catch (decodeErr) {
@@ -181,7 +181,7 @@ function NFTMinter({ userAddress }) {
     <div className="nft-minter">
       <img src="/src/assets/nft4.png" alt="Synergy NFT Logo" className="logo" />
       <h2>Mint Your Synergy NFT</h2>
-      <p>Price: {ethers.formatEther(nftPrices[nftType])} MATIC</p>
+      <p>Price: {ethers.utils.formatEther(nftPrices[nftType])} MATIC</p>
       <p>Your NFT Balance: {userBalance}</p>
       <div className="form-group">
         <label>Select NFT Type:</label>
